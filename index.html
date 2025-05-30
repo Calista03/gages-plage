@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,32 +10,36 @@
   <link rel="icon" type="image/png" href="icon.png">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #fdf6e3;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom right, #fff0e0, #ffd8c2);
       text-align: center;
       padding: 20px;
     }
     h1 {
       color: #ff6f61;
+      font-size: 2rem;
     }
     #card {
-      background: #fff;
-      border: 2px solid #ff6f61;
-      border-radius: 12px;
+      background: #ffffff;
+      border: 3px dashed #ff6f61;
+      border-radius: 18px;
       padding: 30px;
       margin: 30px auto;
       width: 80%;
       max-width: 500px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      font-size: 1.3rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      font-size: 1.4rem;
+      min-height: 120px;
+      transition: all 0.3s ease-in-out;
     }
     button {
       background-color: #ff6f61;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 14px 28px;
       font-size: 1rem;
-      border-radius: 8px;
+      border-radius: 12px;
+      margin: 10px;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
@@ -45,8 +50,11 @@
 </head>
 <body>
   <h1>🎉 Tire une carte !</h1>
-  <div id="card">Clique pour découvrir un gage ou une question !</div>
-  <button onclick="newCard()">Tirer une carte 🎲</button>
+  <div id="card">Clique sur un bouton pour jouer !</div>
+  <div>
+    <button onclick="newCard()">Nouvelle carte 🎲</button>
+    <button onclick="newCard()">Rejouer 🔁</button>
+  </div>
 
   <script>
     const cards = [
@@ -69,8 +77,13 @@
     ];
 
     function newCard() {
+      const card = document.getElementById("card");
       const randomIndex = Math.floor(Math.random() * cards.length);
-      document.getElementById("card").textContent = cards[randomIndex];
+      card.style.opacity = 0;
+      setTimeout(() => {
+        card.textContent = cards[randomIndex];
+        card.style.opacity = 1;
+      }, 300);
     }
   </script>
 </body>
