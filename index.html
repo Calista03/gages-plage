@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Jeu de Gages – Anniv Plage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6f61">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdf6e3;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #ff6f61;
+    }
+    #card {
+      background: #fff;
+      border: 2px solid #ff6f61;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px auto;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 1.3rem;
+    }
+    button {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #ff3b2e;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Tire une carte !</h1>
+  <div id="card">Clique pour découvrir un gage ou une question !</div>
+  <button onclick="newCard()">Tirer une carte 🎲</button>
+
+  <script>
+    const cards = [
+      "Chante une chanson d’amour façon rockeur devant tout le monde.",
+      "Imite ton partenaire en train de se réveiller.",
+      "Fais une déclaration d’amour à un objet de plage.",
+      "Danse comme si tu étais sur un clip des années 2000.",
+      "Embrasse ton partenaire comme dans un film romantique.",
+      "Fais un massage express à ton/ta partenaire (1 minute).",
+      "Donne un surnom mignon à ton/ta partenaire et utilise-le toute la soirée.",
+      "Faites une pose romantique pour une photo souvenir.",
+      "Quel est le plat préféré de ton/ta partenaire ?",
+      "Quel est son plus grand rêve ?",
+      "Quelle est sa plus grande peur ?",
+      "Où a eu lieu votre premier baiser ?",
+      "Fais une danse sensuelle avec une serviette autour de toi.",
+      "Chuchote quelque chose de gentil (ou coquin) à ton/ta partenaire.",
+      "Devine l’objet que ton/ta partenaire tient, les yeux bandés.",
+      "Invente un cocktail au nom de ton couple et décris-le."
+    ];
+
+    function newCard() {
+      const randomIndex = Math.floor(Math.random() * cards.length);
+      document.getElementById("card").textContent = cards[randomIndex];
+    }
+  </script>
+</body>
+</html>
